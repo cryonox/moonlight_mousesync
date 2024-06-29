@@ -1,0 +1,6 @@
+#serverip: 127.0.0.1
+serverip: 172.22.26.207
+listenaddress: 0.0.0.0
+port: 65432
+should_log: True
+hide_ibeam: True
