@@ -3,8 +3,11 @@ import win32process
 import ctypes
 import ctypes.wintypes
 import win32gui
-import psutil
 import win32api
+import win32process
+import win32con
+from pathlib import Path
+
 
 
 class AttrDict(dict):
@@ -50,7 +53,9 @@ def active_window_process_name():
     try:
         pid = win32process.GetWindowThreadProcessId(
             win32gui.GetForegroundWindow())
-        return (psutil.Process(pid[-1]).name())
+        handle = win32api.OpenProcess(win32con.PROCESS_QUERY_INFORMATION | win32con.PROCESS_VM_READ, False, pid[1])
+        proc_name = win32process.GetModuleFileNameEx(handle, 0)
+        return Path(proc_name).name
     except Exception as ex:
         print(ex)
 
