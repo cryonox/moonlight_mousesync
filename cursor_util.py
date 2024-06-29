@@ -20,7 +20,8 @@ class Cursor(object):
     @classmethod
     def load_custom(cls,type):
         ret = Cursor()
-        handle = win32gui.LoadImage(0, "cursors/empty.cur", win32con.IMAGE_CURSOR, 
+        print(f'loading {type}')
+        handle = win32gui.LoadImage(0, f"cursors/{type}.cur", win32con.IMAGE_CURSOR, 
                                     32, 32, win32con.LR_LOADFROMFILE)
         ret.type = type
         ret.handle = handle

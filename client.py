@@ -53,8 +53,8 @@ def sync_func():
                 data = s.recv(1024)
                 cur = data.decode('utf-8')
                 log(f"Received {cur}")
-                if cur == 'IBEAM' and C.hide_ibeam:
-                    server_cursor = cursor_util.Cursor.load_custom('IBEAMC')
+                if cur == 'IBEAM' and C.ibeam_mode !='normal':
+                    server_cursor = cursor_util.Cursor.load_custom(C.ibeam_mode)
                 else:
                     server_cursor = cursor_util.DEFAULT_CURSORS[cur]
                 should_change = True

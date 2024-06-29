@@ -3,4 +3,4 @@ serverip: 172.22.26.207
 listenaddress: 0.0.0.0
 port: 65432
 should_log: True
-hide_ibeam: True
+ibeam_mode: 'beam_r' # normal, empty,beam_r
